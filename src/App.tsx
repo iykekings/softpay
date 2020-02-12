@@ -21,6 +21,10 @@ const Logo = styled.header`
   width: 100px;
   top: 10px;
   left: 20px;
+  @media(max-width: 620px) {
+    width: 40px;
+    left: 10px;
+  }
   img {
     width: 100%;
   }
@@ -34,6 +38,10 @@ const Main = styled.main`
   flex-direction: column;
   position: relative;
   height: 100vh;
+  width: 100%;
+  @media(max-width: 620px) {
+      height: unset;
+    }
   &::after {
     content: "";
   background: url(bg.svg);
@@ -52,15 +60,15 @@ const Main = styled.main`
     background:#ffffff;
     border-radius: 5px;
     padding: 2rem;
-    box-shadow: 2px 2px 13px
-    #00000017;
+    box-shadow: 2px 2px 13px #00000017;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     h1 {
       font-size: 2rem;
       color: #3d4446;
-      display: flex;
-      align-items: center;
       font-weight: 400;
-      margin: 2rem 0px;
+      margin-bottom: 2rem;
     }
   }
 `;

@@ -1,6 +1,6 @@
 import React from 'react'
 import Input from './Input'
-import { MastercardIcon, Check } from '../assets/iconpack';
+import { MastercardIcon, Check, Cancel } from '../assets/iconpack';
 import styled from 'styled-components';
 import MasterCard from './MasterCard';
 import Visa from './Visa';
@@ -13,17 +13,14 @@ const PaymentForm = () => {
         <Visa checked={false} />
       </section>
       <section id="inputCollections">
-        <Input placeholder="Full Name" icon={Check} iconSize="4rem" />
-        <Input placeholder="Email" icon={Check} iconSize="4rem" />
-        <Input placeholder="Phone Number" icon={Check} iconSize="4rem" />
-        <Input placeholder="Password" type="password" icon={Check} iconSize="4rem" />
-        <Input placeholder="Confirm Password" type="password" icon={Check} iconSize="4rem" />
-
-      </section>
-      <section id="cardDetails">
-        <Input placeholder="Card Number" icon={MastercardIcon} iconSize="8rem" />
-        <Input placeholder="Expiry Date" icon={Check} iconSize="4rem" />
-        <Input placeholder="Card Pin" icon={Check} iconSize="4rem" />
+        <Input placeholder="Full Name" icon={Check} />
+        <Input placeholder="Email" icon={Check} />
+        <Input placeholder="Phone Number" icon={Check} />
+        <Input placeholder="Password" type="password" icon={Check} />
+        <Input placeholder="Confirm Password" type="password" icon={Check} />
+        <Input id="card_number" placeholder="Card Number" icon={MastercardIcon} />
+        <Input placeholder="Expiry Date" icon={Check} />
+        <Input placeholder="Card Pin" icon={Cancel} />
       </section>
     </Form>
   )
@@ -32,28 +29,31 @@ const Form = styled.form`
   section#cards {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 1rem;
+    @media(max-width: 620px) {
+      &>div {
+        margin-bottom: 1rem;
+      }
+    }
   }
   section#inputCollections {
     margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
     max-width: 630px;
     justify-content: flex-start;
 
-    &>div {
-      margin-right: 1rem;
+    @media(max-width: 620px) {
+      display: flex;
+      flex-direction: column;
+      
     }
-  }
-  section#cardDetails {
-    display: flex;
-    max-width: 630px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 
-    &>div {
-      margin-right: 1rem;
+    & > :nth-child(6) {
+      grid-column: 1/-1;
     }
   }
 `;

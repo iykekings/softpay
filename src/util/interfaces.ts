@@ -9,7 +9,6 @@ type BaseInput = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElem
 
 type InputExtended = {
   icon?: JSX.Element;
-  iconSize?: string;
 }
 
 export type InputProps = BaseInput & InputExtended;

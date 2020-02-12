@@ -7,7 +7,7 @@ const Input = (props: InputProps) => {
     <Container>
       <input type="text" {...props} />
       <div className="spacer"></div>
-      <div className="icon" style={{ width: props.iconSize, height: "auto" }}>{props.icon}</div>
+      <div className="icon">{props.icon}</div>
     </Container>
   )
 }
@@ -19,6 +19,16 @@ const Container = styled.div`
     margin-bottom: 0.7rem;
     .spacer {
       flex: 1 1 100%;
+    }
+    .icon {
+      width: 4rem;
+      height: auto;
+      @media(max-width: 620px) {
+        width: 2rem;
+      }
+      @media(max-width: 400px) {
+        width: 3rem;
+      }
     }
     input {
       border: none;
