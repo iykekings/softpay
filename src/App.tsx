@@ -30,23 +30,30 @@ const Main = styled.main`
   height: 100vh;
   &::after {
     content: "";
-  background: url(bg_func.svg);
-  opacity: 0.9;
+  background: url(bgx.svg);
+  opacity: 0.6;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
   z-index: -1;
+  background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
   }
   .wrapper {
-    background:#eae9e9f0;
-border-radius: 5px;
-padding: 4rem 2rem;
+    background:#ffffff;
+    border-radius: 5px;
+    padding: 4rem 2rem;
+    height: 80vh;
+    box-shadow: 2px 2px 13px
+    #0000003d;
   h1 {
-    font-size: 2rem;
+    font-size: x-large;
     display: flex;
     align-items: center;
+    font-weight: 500;
   }
   section {
     display: flex;

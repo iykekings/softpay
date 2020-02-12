@@ -1,10 +1,16 @@
 import React from "react";
+import { Card } from "../util/interfaces";
 
-function Visa() {
+function Visa({ name, number, date }: Card) {
+  const checkedNum = number || "5454";
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300px"
+      style={{
+        boxShadow: "2px 2px 13px #0000002b",
+        borderRadius: "5px"
+      }}
       height="172px"
       viewBox="0 0 1050 600"
     >
@@ -36,9 +42,9 @@ function Visa() {
           </tspan>
           <tspan y="0"> **** **** </tspan>
           <tspan y="0" fill="#2a2a2a">
-            5
+            {(checkedNum as string).slice(0, 1) || "*"}
           </tspan>
-          <tspan y="0">454</tspan>
+          <tspan y="0">{(checkedNum as string).slice(1) || "*"}</tspan>
         </text>
         <text
           fill="#2a2a2a"
@@ -48,7 +54,7 @@ function Visa() {
           transform="translate(1342 1098)"
         >
           <tspan x="0" y="0">
-            Ikechukwu Eze
+            {name || "Your Name"}
           </tspan>
         </text>
         <text
@@ -59,7 +65,7 @@ function Visa() {
           transform="translate(2097 1098)"
         >
           <tspan x="0" y="0">
-            02 / 23
+            {date || "02 / 23"}
           </tspan>
         </text>
         <g fill="#7563da" stroke="#707070" transform="translate(1712 741)">

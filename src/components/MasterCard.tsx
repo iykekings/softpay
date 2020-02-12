@@ -1,11 +1,16 @@
 import React from "react";
+import { Card } from "../util/interfaces";
 
-function MasterCard() {
+function MasterCard({ name, number, date }: Card) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="300px"
       height="172px"
+      style={{
+        boxShadow: "2px 2px 13px #0000002b",
+        borderRadius: "5px"
+      }}
       viewBox="0 0 1050 600"
     >
       <g transform="translate(-215 -62)">
@@ -53,7 +58,7 @@ function MasterCard() {
           transform="translate(712 462)"
         >
           <tspan x="-445.14" y="0">
-            **** **** **** 5454
+            {number || "****  ****  ****  5454"}
           </tspan>
         </text>
         <text
@@ -64,7 +69,7 @@ function MasterCard() {
           transform="translate(271 584)"
         >
           <tspan x="0" y="0">
-            Ikechukwu Eze
+            {name || "Your Name"}
           </tspan>
         </text>
         <text
@@ -75,7 +80,7 @@ function MasterCard() {
           transform="translate(1026 584)"
         >
           <tspan x="0" y="0">
-            02 / 23
+            {date || "02 / 23"}
           </tspan>
         </text>
         <g fill="#7563da" stroke="#707070" transform="translate(641 227)">
