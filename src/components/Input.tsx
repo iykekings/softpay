@@ -25,6 +25,7 @@ const Container = styled.div`
       font-size: 1rem;
       color: #3d4446;
       font-weight: 500;
+      outline: none;
     }
 `;
 

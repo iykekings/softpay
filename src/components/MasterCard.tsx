@@ -1,17 +1,12 @@
 import React from "react";
 import { Card } from "../util/interfaces";
-import styled from "styled-components";
+import { Paycheck } from '../assets/iconpack';
+import { Wrapper, Check } from './StyledComponents'
 
-const Wrapper = styled.div`
-      box-shadow: 2px 2px 13px #00000014;
-      border-radius: 5px;
-      width: 200px;
-      height: 115px;
-      margin-right: 1rem;
-`;
-function MasterCard({ name, number, date }: Card) {
+function MasterCard({ name, number, date, checked }: Card) {
   return (
     <Wrapper>
+      <Check style={{ color: checked ? "#33cc33" : "grey" }}>{Paycheck}</Check>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1050 600"

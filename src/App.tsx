@@ -52,7 +52,6 @@ const Main = styled.main`
     background:#ffffff;
     border-radius: 5px;
     padding: 2rem;
-    height: 80vh;
     box-shadow: 2px 2px 13px
     #00000017;
     h1 {
