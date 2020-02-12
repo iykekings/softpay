@@ -1,13 +1,13 @@
 ## Softpay
 
-> Deployed [Here]()
+> Deployed [Here](https://softpay.netlify.com/)
 
 ### A credit card payment form implemented with React
 
 ### Stack 
 - React
 - Typescript
-- SCSS
+- Styled-Components
 - Jest
 
 ### Commands
