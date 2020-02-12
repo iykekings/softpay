@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from './Input'
 import { MastercardIcon, Check, Cancel } from '../assets/iconpack';
 import styled from 'styled-components';
@@ -6,11 +6,13 @@ import MasterCard from './MasterCard';
 import Visa from './Visa';
 
 const PaymentForm = () => {
+  const [isMaster, setIsMaster] = useState(true);
+  const switchCard = () => setIsMaster(!isMaster);
   return (
     <Form>
       <section id="cards">
-        <MasterCard checked={true} />
-        <Visa checked={false} />
+        <MasterCard checked={isMaster} toggle={switchCard} />
+        <Visa checked={!isMaster} toggle={switchCard} />
       </section>
       <section id="inputCollections">
         <Input placeholder="Full Name" icon={Check} />
@@ -30,7 +32,7 @@ const Form = styled.form`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-bottom: 1rem;
     @media(max-width: 620px) {
       &>div {

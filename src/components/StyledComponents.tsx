@@ -13,7 +13,6 @@ const Wrapper = styled.div`
       border-radius: 5px;
       width: 230px;
       height: 132px;
-      margin-right: 1rem;
 `;
 
 export { Check, Wrapper };

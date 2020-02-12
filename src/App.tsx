@@ -20,10 +20,9 @@ const Logo = styled.header`
   position: absolute;
   width: 100px;
   top: 10px;
-  left: 20px;
+  left: 5px;
   @media(max-width: 620px) {
     width: 40px;
-    left: 10px;
   }
   img {
     width: 100%;
@@ -59,13 +58,14 @@ const Main = styled.main`
   .wrapper {
     background:#ffffff;
     border-radius: 5px;
-    padding: 2rem;
+    padding: 3rem 2rem;
     box-shadow: 2px 2px 13px #00000017;
     display: flex;
     flex-direction: column;
     align-items: center;
     h1 {
       font-size: 2rem;
+      align-self: flex-start;
       color: #3d4446;
       font-weight: 400;
       margin-bottom: 2rem;

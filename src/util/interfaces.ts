@@ -3,6 +3,7 @@ export interface Card {
   number?: string;
   date?: string;
   checked?: boolean;
+  toggle?: () => void;
 }
 
 type BaseInput = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;

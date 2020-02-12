@@ -4,10 +4,10 @@ import { Wrapper, Check } from './StyledComponents'
 import { Paycheck } from '../assets/iconpack'
 
 
-function Visa({ name, number, date, checked }: Card) {
+function Visa({ name, number, date, checked, toggle }: Card) {
   const checkedNum = number || "5454";
   return (
-    <Wrapper>
+    <Wrapper onClick={toggle}>
       <Check style={{ color: checked ? "#33cc33" : "grey" }}>{Paycheck}</Check>
       <svg
         xmlns="http://www.w3.org/2000/svg"

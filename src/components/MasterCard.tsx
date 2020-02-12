@@ -3,9 +3,9 @@ import { Card } from "../util/interfaces";
 import { Paycheck } from '../assets/iconpack';
 import { Wrapper, Check } from './StyledComponents'
 
-function MasterCard({ name, number, date, checked }: Card) {
+function MasterCard({ name, number, date, checked, toggle }: Card) {
   return (
-    <Wrapper>
+    <Wrapper onClick={toggle}>
       <Check style={{ color: checked ? "#33cc33" : "grey" }}>{Paycheck}</Check>
       <svg
         xmlns="http://www.w3.org/2000/svg"
