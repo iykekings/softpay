@@ -35,6 +35,17 @@ const PaymentForm = () => {
   const [pin, setPin] = useState('');
   const [exDate, setExDate] = useState('');
   const [valid, setValid] = useState(false);
+  const [touched, setTouched] = useState<{ [key: string]: 0 | 1 }>({
+    fullName: 0,
+    email: 0,
+    phone: 0,
+    password: 0,
+    cPassword: 0,
+    pin: 0,
+    exDate: 0
+  });
+
+  const toggleTouched = (id: string) => setTouched({ ...touched, [id]: 1 });
 
   useEffect(() => {
     if (
@@ -78,43 +89,64 @@ const PaymentForm = () => {
       <section id="inputCollections">
         <Input
           placeholder="Full Name"
+          displayicon={touched['fullName']}
           icon={validInput(isValidName(fullName))}
           value={fullName}
-          onChange={e => setFullName(e.target.value)}
+          onChange={e => {
+            setFullName(e.target.value);
+            toggleTouched('fullName');
+          }}
         />
         <Input
           placeholder="Email"
+          displayicon={touched['email']}
           icon={validInput(isValidEmail(email))}
-          onChange={e => setEmail(e.target.value)}
+          onChange={e => {
+            setEmail(e.target.value);
+            toggleTouched('email');
+          }}
         />
         <Input
           placeholder="Phone Number"
           value={phone}
+          displayicon={touched['phone']}
           type="text"
-          onChange={e => setPhone(e.target.value)}
+          onChange={e => {
+            setPhone(e.target.value);
+            toggleTouched('phone');
+          }}
           icon={validInput(isValidPhone(phone))}
         />
         <Input
           placeholder="Password"
           type="password"
+          displayicon={touched['password']}
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={e => {
+            setPassword(e.target.value);
+            toggleTouched('password');
+          }}
           icon={validInput(isStrongPassword(password))}
         />
         <Input
           placeholder="Confirm Password"
           type="password"
           value={cPassword}
-          onChange={e => setCPassword(e.target.value)}
+          displayicon={touched['cPassword']}
+          onChange={e => {
+            setCPassword(e.target.value);
+            toggleTouched('cPassword');
+          }}
           icon={validInput(password === cPassword)}
         />
         <Input
-          id="card_number"
           type="text"
           value={cardNum}
+          displayicon={1}
           onChange={e => {
             let v = e.target.value;
             setCardNum(pre => insertSpaces(v, pre));
+            toggleTouched('cardNum');
           }}
           placeholder="Card Number"
           grayable={isValidCard(cardNum) ? 0 : 1}
@@ -122,19 +154,25 @@ const PaymentForm = () => {
         />
         <Input
           placeholder="Expiry Date"
+          displayicon={touched['exDate']}
           icon={validInput(isValidExDate(exDate))}
           value={exDate}
           onChange={e => {
             let v = e.target.value;
             setExDate(pre => insertSlash(v, pre));
+            toggleTouched('exDate');
           }}
         />
         <Input
           placeholder="Card Pin"
+          displayicon={touched['pin']}
           type="password"
           icon={validInput(isValidPin(pin))}
           value={pin}
-          onChange={e => setPin(insertPin(e.target.value))}
+          onChange={e => {
+            setPin(insertPin(e.target.value));
+            toggleTouched('pin');
+          }}
         />
       </section>
       <Button disabled={!valid}>Pay</Button>
@@ -170,6 +208,12 @@ const Form = styled.form`
 
     & > :nth-child(6) {
       grid-column: 1/-1;
+      .icon {
+        width: 3rem;
+        @media (max-width: 500px) {
+          width: 5rem;
+        }
+      }
     }
   }
 `;

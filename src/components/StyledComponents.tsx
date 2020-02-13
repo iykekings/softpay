@@ -24,7 +24,7 @@ const Button = styled.button`
   margin-top: 1rem;
   font-size: 1rem;
   padding: 0.3rem 1.5rem;
-  border-radius: 2px;
+  border-radius: 4px;
   &:hover {
     background: #5339eb;
   }

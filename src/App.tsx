@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-import PaymentForm from './components/PaymentForm';
 import styled from 'styled-components';
+import { Wrapper } from './components/StyledComponents';
 
 function App() {
   return (
@@ -9,10 +9,7 @@ function App() {
       <Logo>
         <img src="logo192.png" alt="logo" />
       </Logo>
-      <div className="wrapper">
-        <h1>Pay with Softpay</h1>
-        <PaymentForm />
-      </div>
+      <Wrapper />
     </Main>
   );
 }
@@ -21,14 +18,13 @@ const Logo = styled.header`
   width: 100px;
   top: 10px;
   left: 5px;
-  @media(max-width: 620px) {
+  @media (max-width: 620px) {
     width: 40px;
   }
   img {
     width: 100%;
   }
 `;
-
 
 const Main = styled.main`
   display: flex;
@@ -38,38 +34,22 @@ const Main = styled.main`
   position: relative;
   height: 100vh;
   width: 100%;
-  @media(max-width: 620px) {
-      height: unset;
-    }
-  &::after {
-    content: "";
-  background: url(bg.svg);
-  opacity: 0.2;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  @media (max-width: 620px) {
+    height: unset;
   }
-  .wrapper {
-    background:#ffffff;
-    border-radius: 5px;
-    padding: 3rem 2rem;
-    box-shadow: 2px 2px 13px #00000017;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h1 {
-      font-size: 2rem;
-      align-self: flex-start;
-      color: #3d4446;
-      font-weight: 400;
-      margin-bottom: 2rem;
-    }
+  &::after {
+    content: '';
+    background: url(bg.svg);
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 `;
 
