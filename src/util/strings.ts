@@ -48,7 +48,7 @@ export function isValidPin(s: string) {
 }
 
 export function isValidExDate(s: string) {
-  return /^\d{2}\\\d{2}$/.test(s);
+  return /^\d{2}\/\d{2}$/.test(s);
 }
 
 export function isStrongPassword(s: string) {
