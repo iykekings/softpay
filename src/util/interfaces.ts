@@ -15,7 +15,7 @@ type InputExtended = {
   icon?: JSX.Element;
   grayable?: 0 | 1;
   displayicon?: 0 | 1;
-  valid: boolean;
+  valid: 0 | 1;
   error: string;
 };
 

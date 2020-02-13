@@ -4,22 +4,29 @@ import styled from 'styled-components';
 
 const Input = (props: InputProps) => {
   return (
-    <Container grayable={props.grayable} displayicon={props.displayicon}>
+    <Container
+      valid={props.valid}
+      grayable={props.grayable}
+      displayicon={props.displayicon}
+    >
       <input type="text" {...props} />
       <div className="spacer"></div>
       <div className="icon">{props.icon}</div>
+      <p className="error">{props.error}</p>
     </Container>
   );
 };
 const Container = styled.div<{
   grayable: 0 | 1 | undefined;
   displayicon: 0 | 1 | undefined;
+  valid: 0 | 1;
 }>`
   display: flex;
   align-items: center;
+  position: relative;
   border: 1px #8080801a solid;
   padding: 0.7rem 1rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
   .spacer {
     flex: 1 1 100%;
   }
@@ -34,6 +41,15 @@ const Container = styled.div<{
     @media (max-width: 500px) {
       width: 3rem;
     }
+  }
+  .error {
+    position: absolute;
+    font-size: 8px;
+    text-align: left;
+    color: #f44336;
+    opacity: ${props => (props.displayicon && !props.valid ? '1' : '0')};
+    left: 0;
+    bottom: -1rem;
   }
   input {
     border: none;

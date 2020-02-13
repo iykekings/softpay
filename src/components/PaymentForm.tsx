@@ -44,7 +44,8 @@ const PaymentForm = () => {
     password: 0,
     cPassword: 0,
     pin: 0,
-    exDate: 0
+    exDate: 0,
+    cardNum: 0
   });
 
   const toggleTouched = (id: string) => setTouched({ ...touched, [id]: 1 });
@@ -93,9 +94,8 @@ const PaymentForm = () => {
           placeholder="Full Name"
           displayicon={touched['fullName']}
           icon={validInput(isValidName(fullName))}
-          valid={isValidName(fullName)}
-          error="must be more than 2 characters, must include a space and then
-          second name"
+          valid={isValidName(fullName) ? 1 : 0}
+          error="must have first and last name"
           value={fullName}
           onChange={e => {
             setFullName(e.target.value);
@@ -106,7 +106,7 @@ const PaymentForm = () => {
           placeholder="Email"
           displayicon={touched['email']}
           icon={validInput(isValidEmail(email))}
-          valid={isValidEmail(email)}
+          valid={isValidEmail(email) ? 1 : 0}
           error="must be a valid email address"
           onChange={e => {
             setEmail(e.target.value);
@@ -124,12 +124,12 @@ const PaymentForm = () => {
             toggleTouched('phone');
           }}
           icon={validInput(isValidPhone(phone))}
-          valid={isValidPhone(phone)}
+          valid={isValidPhone(phone) ? 1 : 0}
         />
         <Input
           placeholder="Password"
           type="password"
-          error="at least one uppercase character, one number, special character and greater than 6 characters"
+          error="password is not strong enough"
           displayicon={touched['password']}
           value={password}
           onChange={e => {
@@ -137,7 +137,7 @@ const PaymentForm = () => {
             toggleTouched('password');
           }}
           icon={validInput(isStrongPassword(password))}
-          valid={isStrongPassword(password)}
+          valid={isStrongPassword(password) ? 1 : 0}
         />
         <Input
           placeholder="Confirm Password"
@@ -150,13 +150,13 @@ const PaymentForm = () => {
             toggleTouched('cPassword');
           }}
           icon={validInput(password === cPassword)}
-          valid={password === cPassword}
+          valid={password === cPassword ? 1 : 0}
         />
         <Input
           type="text"
           value={cardNum}
           error="must be a valid card number"
-          displayicon={1}
+          displayicon={touched['cardNum']}
           onChange={e => {
             let v = e.target.value;
             setCardNum(pre => insertSpaces(v, pre));
@@ -164,7 +164,7 @@ const PaymentForm = () => {
           }}
           placeholder="Card Number"
           grayable={isValidCard(cardNum) ? 0 : 1}
-          valid={isValidCard(cardNum)}
+          valid={isValidCard(cardNum) ? 1 : 0}
           icon={isMaster ? MastercardIcon : VisaIcon}
         />
         <Input
@@ -172,7 +172,7 @@ const PaymentForm = () => {
           displayicon={touched['exDate']}
           error="must be a valid MM/YY date"
           icon={validInput(isValidExDate(exDate))}
-          valid={isValidExDate(exDate)}
+          valid={isValidExDate(exDate) ? 1 : 0}
           value={exDate}
           onChange={e => {
             let v = e.target.value;
@@ -186,7 +186,7 @@ const PaymentForm = () => {
           type="password"
           error="must be four digits"
           icon={validInput(isValidPin(pin))}
-          valid={isValidPin(pin)}
+          valid={isValidPin(pin) ? 1 : 0}
           value={pin}
           onChange={e => {
             setPin(insertPin(e.target.value));
