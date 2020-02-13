@@ -15,6 +15,8 @@ type InputExtended = {
   icon?: JSX.Element;
   grayable?: 0 | 1;
   displayicon?: 0 | 1;
+  valid: boolean;
+  error: string;
 };
 
 export type InputProps = BaseInput & InputExtended;

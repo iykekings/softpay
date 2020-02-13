@@ -21,6 +21,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 500px) {
+    margin-bottom: 2rem;
+  }
   h1 {
     font-size: 2rem;
     align-self: flex-start;

@@ -93,6 +93,9 @@ const PaymentForm = () => {
           placeholder="Full Name"
           displayicon={touched['fullName']}
           icon={validInput(isValidName(fullName))}
+          valid={isValidName(fullName)}
+          error="must be more than 2 characters, must include a space and then
+          second name"
           value={fullName}
           onChange={e => {
             setFullName(e.target.value);
@@ -103,6 +106,8 @@ const PaymentForm = () => {
           placeholder="Email"
           displayicon={touched['email']}
           icon={validInput(isValidEmail(email))}
+          valid={isValidEmail(email)}
+          error="must be a valid email address"
           onChange={e => {
             setEmail(e.target.value);
             toggleTouched('email');
@@ -111,6 +116,7 @@ const PaymentForm = () => {
         <Input
           placeholder="Phone Number"
           value={phone}
+          error="must be a valid Nigerian phone number"
           displayicon={touched['phone']}
           type="text"
           onChange={e => {
@@ -118,10 +124,12 @@ const PaymentForm = () => {
             toggleTouched('phone');
           }}
           icon={validInput(isValidPhone(phone))}
+          valid={isValidPhone(phone)}
         />
         <Input
           placeholder="Password"
           type="password"
+          error="at least one uppercase character, one number, special character and greater than 6 characters"
           displayicon={touched['password']}
           value={password}
           onChange={e => {
@@ -129,10 +137,12 @@ const PaymentForm = () => {
             toggleTouched('password');
           }}
           icon={validInput(isStrongPassword(password))}
+          valid={isStrongPassword(password)}
         />
         <Input
           placeholder="Confirm Password"
           type="password"
+          error="must match password"
           value={cPassword}
           displayicon={touched['cPassword']}
           onChange={e => {
@@ -140,10 +150,12 @@ const PaymentForm = () => {
             toggleTouched('cPassword');
           }}
           icon={validInput(password === cPassword)}
+          valid={password === cPassword}
         />
         <Input
           type="text"
           value={cardNum}
+          error="must be a valid card number"
           displayicon={1}
           onChange={e => {
             let v = e.target.value;
@@ -152,12 +164,15 @@ const PaymentForm = () => {
           }}
           placeholder="Card Number"
           grayable={isValidCard(cardNum) ? 0 : 1}
+          valid={isValidCard(cardNum)}
           icon={isMaster ? MastercardIcon : VisaIcon}
         />
         <Input
           placeholder="Expiry Date"
           displayicon={touched['exDate']}
+          error="must be a valid MM/YY date"
           icon={validInput(isValidExDate(exDate))}
+          valid={isValidExDate(exDate)}
           value={exDate}
           onChange={e => {
             let v = e.target.value;
@@ -169,7 +184,9 @@ const PaymentForm = () => {
           placeholder="Card Pin"
           displayicon={touched['pin']}
           type="password"
+          error="must be four digits"
           icon={validInput(isValidPin(pin))}
+          valid={isValidPin(pin)}
           value={pin}
           onChange={e => {
             setPin(insertPin(e.target.value));
