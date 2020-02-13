@@ -4,12 +4,18 @@
 
 ### A credit card payment form implemented with React
 
-### Stack 
+### Stack
+
 - React
 - Typescript
 - Styled-Components
 - Jest
 
 ### Commands
+
 - Start: `npm start`
 - Test: `npm test`
+
+### UI
+
+![](ui.png)
