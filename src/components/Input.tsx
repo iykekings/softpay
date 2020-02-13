@@ -29,7 +29,7 @@ const Container = styled.div<{ grayable: 0 | 1 | undefined }>`
       width: 2rem;
     }
     @media (max-width: 400px) {
-      width: 1.5rem;
+      width: 3rem;
     }
   }
   input {
