@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import Input from './Input';
-import { MastercardIcon, Check, Cancel, VisaIcon } from '../assets/iconpack';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+
+import Input from './Input';
+import { Button } from './StyledComponents';
+import { MastercardIcon, Check, Cancel, VisaIcon } from '../assets/iconpack';
 import MasterCard from './MasterCard';
 import Visa from './Visa';
 import {
@@ -32,9 +34,31 @@ const PaymentForm = () => {
   const [cPassword, setCPassword] = useState('');
   const [pin, setPin] = useState('');
   const [exDate, setExDate] = useState('');
+  const [valid, setValid] = useState(false);
+
+  useEffect(() => {
+    if (
+      isValidName(fullName) &&
+      isValidCard(cardNum) &&
+      isValidPhone(phone) &&
+      isStrongPassword(password) &&
+      password === cPassword &&
+      isValidPin(pin) &&
+      isValidExDate(exDate)
+    ) {
+      setValid(true);
+    } else {
+      setValid(false);
+    }
+  }, [fullName, cardNum, email, phone, password, cPassword, pin, exDate]);
 
   return (
-    <Form>
+    <Form
+      onSubmit={e => {
+        e.preventDefault();
+        console.log(true);
+      }}
+    >
       <section id="cards">
         <MasterCard
           checked={isMaster}
@@ -113,10 +137,12 @@ const PaymentForm = () => {
           onChange={e => setPin(insertPin(e.target.value))}
         />
       </section>
+      <Button disabled={!valid}>Pay</Button>
     </Form>
   );
 };
 const Form = styled.form`
+  text-align: center;
   section#cards {
     display: flex;
     align-items: center;

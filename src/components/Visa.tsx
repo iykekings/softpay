@@ -1,19 +1,15 @@
-import React from "react";
-import { Card } from "../util/interfaces";
-import { Wrapper, Check } from './StyledComponents'
-import { Paycheck } from '../assets/iconpack'
-import { generateCardNum } from "../util/strings";
-
+import React from 'react';
+import { Card } from '../util/interfaces';
+import { Wrapper, Check } from './StyledComponents';
+import { Paycheck } from '../assets/iconpack';
+import { generateCardNum } from '../util/strings';
 
 function Visa({ name, number, date, checked, toggle }: Card) {
   const checkedNum = generateCardNum(number);
   return (
     <Wrapper onClick={toggle}>
-      <Check style={{ color: checked ? "#33cc33" : "grey" }}>{Paycheck}</Check>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1050 600"
-      >
+      <Check style={{ color: checked ? '#33cc33' : 'grey' }}>{Paycheck}</Check>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 600">
         <g transform="translate(-1286 -576)">
           <rect
             width="1050"
@@ -36,10 +32,10 @@ function Visa({ name, number, date, checked, toggle }: Card) {
           >
             <tspan x="-445.14" y="0">
               X
-          </tspan>
+            </tspan>
             <tspan y="0" fill="#fffdfd">
               XXX
-          </tspan>
+            </tspan>
             <tspan y="0"> XXXX XXXX </tspan>
             <tspan y="0" fill="#2a2a2a">
               {checkedNum.slice(15, 16)}
@@ -54,7 +50,7 @@ function Visa({ name, number, date, checked, toggle }: Card) {
             transform="translate(1342 1098)"
           >
             <tspan x="0" y="0">
-              {name || "Your Name"}
+              {name || 'Your Name'}
             </tspan>
           </text>
           <text
@@ -65,7 +61,7 @@ function Visa({ name, number, date, checked, toggle }: Card) {
             transform="translate(2097 1098)"
           >
             <tspan x="0" y="0">
-              {date || "02 / 23"}
+              {date || '02/23'}
             </tspan>
           </text>
           <g fill="#7563da" stroke="#707070" transform="translate(1712 741)">

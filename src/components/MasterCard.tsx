@@ -1,17 +1,14 @@
-import React from "react";
-import { Card } from "../util/interfaces";
+import React from 'react';
+import { Card } from '../util/interfaces';
 import { Paycheck } from '../assets/iconpack';
-import { Wrapper, Check } from './StyledComponents'
-import { generateCardNum } from "../util/strings";
+import { Wrapper, Check } from './StyledComponents';
+import { generateCardNum } from '../util/strings';
 
 function MasterCard({ name, number, date, checked, toggle }: Card) {
   return (
     <Wrapper onClick={toggle}>
-      <Check style={{ color: checked ? "#33cc33" : "grey" }}>{Paycheck}</Check>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1050 600"
-      >
+      <Check style={{ color: checked ? '#33cc33' : 'grey' }}>{Paycheck}</Check>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 600">
         <g transform="translate(-215 -62)">
           <g fill="#fff">
             <path
@@ -68,7 +65,7 @@ function MasterCard({ name, number, date, checked, toggle }: Card) {
             transform="translate(271 584)"
           >
             <tspan x="0" y="0">
-              {name || "Your Name"}
+              {name || 'Your Name'}
             </tspan>
           </text>
           <text
@@ -79,7 +76,7 @@ function MasterCard({ name, number, date, checked, toggle }: Card) {
             transform="translate(1026 584)"
           >
             <tspan x="0" y="0">
-              {date || "02 / 23"}
+              {date || '02/23'}
             </tspan>
           </text>
           <g fill="#7563da" stroke="#707070" transform="translate(641 227)">
