@@ -22,14 +22,14 @@ const Container = styled.div<{ grayable: 0 | 1 | undefined }>`
     flex: 1 1 100%;
   }
   .icon {
-    width: 4rem;
+    width: 3.2rem;
     height: auto;
     filter: ${props => (props.grayable ? 'grayscale(1)' : 'grayscale(0)')};
     @media (max-width: 620px) {
       width: 2rem;
     }
     @media (max-width: 400px) {
-      width: 3rem;
+      width: 1.5rem;
     }
   }
   input {
