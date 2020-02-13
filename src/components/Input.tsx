@@ -3,7 +3,6 @@ import { InputProps } from '../util/interfaces';
 import styled from 'styled-components';
 
 const Input = (props: InputProps) => {
-  // TODO: Make display state of icons to be dynamic
   return (
     <Container grayable={props.grayable} displayicon={props.displayicon}>
       <input type="text" {...props} />

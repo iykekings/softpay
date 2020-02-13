@@ -5,7 +5,6 @@ const Succes = () => {
   return (
     <Wrapper>
       <h1>Welcome to Softcom!</h1>
-      <p>payment successfull</p>
     </Wrapper>
   );
 };
@@ -28,9 +27,6 @@ const Wrapper = styled.div`
     color: #ffffff;
     font-weight: 400;
     margin-bottom: 2rem;
-  }
-  p {
-    color: #33cc33;
   }
 `;
 
