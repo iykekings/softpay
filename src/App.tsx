@@ -1,18 +1,33 @@
 import React from 'react';
-import './App.scss';
 import styled from 'styled-components';
-import { Wrapper } from './components/StyledComponents';
+import Home from './pages/Home';
+import { Switch, Route, Link } from 'react-router-dom';
+import Succes from './pages/Success';
+import NoMatch from './pages/NoMatch';
 
 function App() {
   return (
     <Main className="App">
-      <Logo>
-        <img src="logo192.png" alt="logo" />
-      </Logo>
-      <Wrapper />
+      <Link to="/">
+        <Logo>
+          <img src="logo192.png" alt="logo" />
+        </Logo>
+      </Link>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/success">
+          <Succes />
+        </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
+      </Switch>
     </Main>
   );
 }
+
 const Logo = styled.header`
   position: absolute;
   width: 100px;
@@ -32,11 +47,12 @@ const Main = styled.main`
   justify-content: center;
   flex-direction: column;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  @media (max-width: 620px) {
+  /* @media (max-width: 620px) {
     height: unset;
-  }
+    min-height: 100vh;
+  } */
   &::after {
     content: '';
     background: url(bg.svg);

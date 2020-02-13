@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 import Input from './Input';
 import { Button } from './StyledComponents';
@@ -22,6 +23,7 @@ import {
 const validInput = (state: boolean) => (state ? Check : Cancel);
 
 const PaymentForm = () => {
+  const history = useHistory();
   const switchCard = () => setIsMaster(!isMaster);
 
   // switches cards
@@ -67,7 +69,7 @@ const PaymentForm = () => {
     <Form
       onSubmit={e => {
         e.preventDefault();
-        console.log(true);
+        history.push('/success');
       }}
     >
       <section id="cards">
