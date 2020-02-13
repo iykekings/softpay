@@ -2,10 +2,11 @@ import React from "react";
 import { Card } from "../util/interfaces";
 import { Wrapper, Check } from './StyledComponents'
 import { Paycheck } from '../assets/iconpack'
+import { generateCardNum } from "../util/strings";
 
 
 function Visa({ name, number, date, checked, toggle }: Card) {
-  const checkedNum = number || "5454";
+  const checkedNum = generateCardNum(number);
   return (
     <Wrapper onClick={toggle}>
       <Check style={{ color: checked ? "#33cc33" : "grey" }}>{Paycheck}</Check>
@@ -22,7 +23,7 @@ function Visa({ name, number, date, checked, toggle }: Card) {
             transform="translate(1286 576)"
           ></rect>
           <path d="M1286 783.383V595.999a20 20 0 0120-20h267.938c7.2 40.587-4.3 93.821-39.185 162.382C1432.76 938.826 1634.906 1006 1506.5 1006c-114.71 0-205.671-99.414-220.5-222.617z"></path>
-          <g fill="#7563da" stroke="#707070" transform="translate(2001 898)">
+          <g fill="#eeeeee" transform="translate(2001 898)">
             <circle cx="58.5" cy="58.5" r="58.5" stroke="none"></circle>
             <circle cx="58.5" cy="58.5" r="58" fill="none"></circle>
           </g>
@@ -34,16 +35,16 @@ function Visa({ name, number, date, checked, toggle }: Card) {
             transform="translate(1783 976)"
           >
             <tspan x="-445.14" y="0">
-              *
+              X
           </tspan>
             <tspan y="0" fill="#fffdfd">
-              ***
+              XXX
           </tspan>
-            <tspan y="0"> **** **** </tspan>
+            <tspan y="0"> XXXX XXXX </tspan>
             <tspan y="0" fill="#2a2a2a">
-              {(checkedNum as string).slice(0, 1) || "*"}
+              {checkedNum.slice(15, 16)}
             </tspan>
-            <tspan y="0">{(checkedNum as string).slice(1) || "*"}</tspan>
+            <tspan y="0">{checkedNum.slice(16)}</tspan>
           </text>
           <text
             fill="#2a2a2a"

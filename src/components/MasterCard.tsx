@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "../util/interfaces";
 import { Paycheck } from '../assets/iconpack';
 import { Wrapper, Check } from './StyledComponents'
+import { generateCardNum } from "../util/strings";
 
 function MasterCard({ name, number, date, checked, toggle }: Card) {
   return (
@@ -56,7 +57,7 @@ function MasterCard({ name, number, date, checked, toggle }: Card) {
             transform="translate(712 462)"
           >
             <tspan x="-445.14" y="0">
-              {number || "****  ****  ****  5454"}
+              {generateCardNum(number)}
             </tspan>
           </text>
           <text
