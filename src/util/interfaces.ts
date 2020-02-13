@@ -13,7 +13,7 @@ type BaseInput = React.DetailedHTMLProps<
 
 type InputExtended = {
   icon?: JSX.Element;
-  gray?: boolean;
+  grayable?: 0 | 1;
 };
 
 export type InputProps = BaseInput & InputExtended;

@@ -5,19 +5,14 @@ import styled from 'styled-components';
 const Input = (props: InputProps) => {
   // TODO: Make display state of icons to be dynamic
   return (
-    <Container>
+    <Container grayable={props.grayable}>
       <input type="text" {...props} />
       <div className="spacer"></div>
-      <div
-        className="icon"
-        style={{ filter: props.gray ? 'grayscale(1)' : 'grayscale(0)' }}
-      >
-        {props.icon}
-      </div>
+      <div className="icon">{props.icon}</div>
     </Container>
   );
 };
-const Container = styled.div`
+const Container = styled.div<{ grayable: 0 | 1 | undefined }>`
   display: flex;
   align-items: center;
   border: 1px #8080801a solid;
@@ -29,6 +24,7 @@ const Container = styled.div`
   .icon {
     width: 4rem;
     height: auto;
+    filter: ${props => (props.grayable ? 'grayscale(1)' : 'grayscale(0)')};
     @media (max-width: 620px) {
       width: 2rem;
     }

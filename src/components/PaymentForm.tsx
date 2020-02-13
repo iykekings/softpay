@@ -93,7 +93,7 @@ const PaymentForm = () => {
             setCardNum(pre => insertSpaces(v, pre));
           }}
           placeholder="Card Number"
-          gray={!isValidCard(cardNum)}
+          grayable={isValidCard(cardNum) ? 0 : 1}
           icon={isMaster ? MastercardIcon : VisaIcon}
         />
         <Input
