@@ -17,7 +17,8 @@ import {
   insertSlash,
   isValidExDate,
   insertPin,
-  isValidCard
+  isValidCard,
+  insertPhone
 } from '../util/strings';
 
 const validInput = (state: boolean) => (state ? Check : Cancel);
@@ -120,7 +121,7 @@ const PaymentForm = () => {
           displayicon={touched['phone']}
           type="text"
           onChange={e => {
-            setPhone(e.target.value);
+            setPhone(insertPhone(e.target.value));
             toggleTouched('phone');
           }}
           icon={validInput(isValidPhone(phone))}

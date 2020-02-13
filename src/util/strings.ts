@@ -28,6 +28,11 @@ export function insertPin(s: string = '') {
   return /[^\d]/.test(s) ? s.replace(/[^\d]/g, '') : s;
 }
 
+export function insertPhone(s: string = '') {
+  if (s.length > 11) return s.slice(0, 11);
+  return /[^\d]/.test(s) ? s.replace(/[^\d]/g, '') : s;
+}
+
 export function isValidEmail(email: string) {
   let re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
   return re.test(email);
