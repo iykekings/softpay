@@ -27,6 +27,9 @@ const Container = styled.div<{
   border: 1px #8080801a solid;
   padding: 0.7rem 1rem;
   margin-bottom: 1rem;
+  @media (max-width: 500px) {
+    margin-bottom: 2rem;
+  }
   .spacer {
     flex: 1 1 100%;
   }
