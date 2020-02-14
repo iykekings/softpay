@@ -157,7 +157,7 @@ const PaymentForm = () => {
           type="text"
           value={cardNum}
           error="must be a valid card number"
-          displayicon={touched['cardNum']}
+          displayicon={1}
           onChange={e => {
             let v = e.target.value;
             setCardNum(pre => insertSpaces(v, pre));

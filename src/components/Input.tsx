@@ -8,6 +8,7 @@ const Input = (props: InputProps) => {
       valid={props.valid}
       grayable={props.grayable}
       displayicon={props.displayicon}
+      value={props.value}
     >
       <input type="text" {...props} />
       <div className="spacer"></div>
@@ -20,6 +21,7 @@ const Container = styled.div<{
   grayable: 0 | 1 | undefined;
   displayicon: 0 | 1 | undefined;
   valid: 0 | 1;
+  value: any;
 }>`
   display: flex;
   align-items: center;
@@ -50,7 +52,8 @@ const Container = styled.div<{
     font-size: 8px;
     text-align: left;
     color: #f44336;
-    opacity: ${props => (props.displayicon && !props.valid ? '1' : '0')};
+    opacity: ${props =>
+      props.displayicon && props.value && !props.valid ? '1' : '0'};
     left: 0;
     bottom: -1rem;
   }
